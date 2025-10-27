@@ -19,6 +19,8 @@
 	"custom/sep",
 	"disk",
 	"custom/sep",
+  "custom/media",
+  "custom/sep",
         "clock",
         "tray"
     ],
@@ -69,5 +71,13 @@
     	"format": "|",
 	"interval": 0,
 	"tooltip": false
-    }
+    },
+"custom/media": {
+    "format": "{}",
+    "exec": "wpctl get-volume @DEFAULT_AUDIO_SINK@ | cut -d' ' -f2",
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
+    "interval": 1
+}
 }
