@@ -21,3 +21,9 @@ function disable_bracketed_paste --on-event fish_preexec
     printf '\e[?2004l'
 end
 nvm use 18 --silent
+set -Ux PYENV_ROOT $HOME/.pyenv
+set -Ux fish_user_paths $PYENV_ROOT/bin $fish_user_paths
+status is-login; and pyenv init --path | source
+status is-interactive; and pyenv init - | source
+
+alias ssh='env TERM=xterm-256color ssh'
