@@ -27,3 +27,4 @@ status is-login; and pyenv init --path | source
 status is-interactive; and pyenv init - | source
 
 alias ssh='env TERM=xterm-256color ssh'
+set -gx PATH $PATH (go env GOPATH)/bin

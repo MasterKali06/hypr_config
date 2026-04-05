@@ -8,36 +8,36 @@
     // Choose the order of the modules
     "modules-left": [
         "hyprland/workspaces",
-	"hyprland/window"
+        "hyprland/window"
     ],
     "modules-right": [
         "network",
-	"custom/sep",
+        "custom/sep",
         "cpu",
-	"custom/sep",
+        "custom/sep",
         "memory",
-	"custom/sep",
-	"disk",
-	"custom/sep",
-  "custom/media",
-  "custom/sep",
+        "custom/sep",
+        "disk",
+        "custom/sep",
+        "custom/media",
+        "custom/sep",
         "clock",
         "tray"
     ],
     // Modules configuration
-     "hyprland/workspaces": {
-         "disable-scroll": true,
-         "all-outputs": true,
-         "warp-on-scroll": false,
-         "format": "{name}",
-	 "persistent-workspaces": {
-		 "*": 9
-	 }
-     },
-     "hyprland/window": {
-     	"max-length": 40,
-	"seperate-outputs": false
-     },
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "warp-on-scroll": false,
+        "format": "{name}",
+        "persistent-workspaces": {
+            "*": 9
+        }
+    },
+    "hyprland/window": {
+        "max-length": 40,
+        "separate-outputs": false
+    },
     "tray": {
         // "icon-size": 21,
         "spacing": 10,
@@ -59,25 +59,27 @@
         "format": "Mem: {used} GiB"
     },
     "disk": {
-    	"interval": 60,
-	"path": "/",
-	"format": "Disk: {free}"
+        "interval": 60,
+        "path": "/",
+        "format": "Disk: {free}"
     },
     "network": {
-	"format": "Online",
-        "format-disconnected": "Disconnected ⚠"
+        "format-wifi": "{essid} ({signalStrength}%)",
+        "format-ethernet": "Ethernet",
+        "format-disconnected": "Disconnected ⚠",
+        "tooltip-format": "{ifname}\n{ipaddr}\nSignal: {signalStrength}%",
+        "interval": 5
     },
     "custom/sep": {
-    	"format": "|",
-	"interval": 0,
-	"tooltip": false
+        "format": "|",
+        "interval": 0,
+        "tooltip": false
     },
-"custom/media": {
-    "format": "{}",
-    "exec": "wpctl get-volume @DEFAULT_AUDIO_SINK@ | cut -d' ' -f2",
-    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-    "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
-    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
-    "interval": 1
-}
+    "custom/media": {
+        "format": "Vol: {}",
+        "exec": "wpctl get-volume @DEFAULT_AUDIO_SINK@ | cut -d' ' -f2",
+        "on-click-right": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
+        "on-click": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
+        "interval": 1
+    }
 }
